@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1081136530679",
+    "project_id": "aa-brew",
+    "storage_bucket": "aa-brew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081136530679:android:a7dbe7508667593061bff2",
+        "android_client_info": {
+          "package_name": "com.winfred.brew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081136530679-cj1ujtok9b0ac2jg4jif3t4g5p666los.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7u4Iy1XdUEeorEZw5xyNVXuDh_6F27as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081136530679-cj1ujtok9b0ac2jg4jif3t4g5p666los.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
