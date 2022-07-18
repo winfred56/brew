@@ -10,10 +10,11 @@ class AuthService{
     try {
       UserCredential results = await _auth.signInAnonymously();
       User? user = results.user;
+      print(user);
       return user;
 
     } on Exception catch (e) {
-      print(e);
+      print(e.toString());
       return null;
     }
 

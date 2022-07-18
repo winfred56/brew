@@ -10,7 +10,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   // create an instance of the AuthService class to access its methods/functions
-  AuthService _auth = AuthService();
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
