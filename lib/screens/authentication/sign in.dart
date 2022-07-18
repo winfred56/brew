@@ -2,10 +2,14 @@ import 'package:brew/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  final Function toggleView;
+
+  const SignIn({Key? key, required this.toggleView}) : super(key: key);
 
   @override
   State<SignIn> createState() => _SignInState();
+
+
 }
 
 class _SignInState extends State<SignIn> {
@@ -24,7 +28,22 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.brown[400],
         title: const Text("Sign In To Brew"),
         elevation: 0.0,
-        centerTitle: true,
+        actions: [
+          TextButton.icon(onPressed: (){
+            widget.toggleView();
+          },
+              icon: const Icon(
+                Icons.person_add_alt,
+                color: Colors.white,
+              ),
+              label: const Text(
+                "Register",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              ),
+          ),
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
