@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
               print("Error trying to Sign In");
             }else{
               print("Sign In Successful");
-              print(result);
+              //print(result);
             }
           },
           child: const Text("Sign In Anonymously"),
