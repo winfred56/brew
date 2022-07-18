@@ -24,20 +24,35 @@ class _SignInState extends State<SignIn> {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-        child: ElevatedButton(
-          onPressed: () async {
-            // async because it has to wait for the SignInAnon function to complete
-            dynamic result =await _auth.signInAnon();
-            // check if the function run successfully
-            if(result == null){
-              print("Error trying to Sign In");
-            }else{
-              print("Sign In Successful");
-              //print(result);
-            }
-          },
-          child: const Text("Sign In Anonymously"),
-        ),
+        child: Form(
+          child: Column(
+            children: [
+              const SizedBox(height: 20.0,),
+              TextFormField(
+                onChanged: (val){},
+
+              ),
+              const SizedBox(height: 20.0,),
+              TextFormField(
+                onChanged: (val){},
+                obscureText: true,
+
+              ),
+              const SizedBox(height: 20.0,),
+              ElevatedButton(
+                style:ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.brown),
+                ),
+                  onPressed: ()async{},
+                  child: const Text("Sign In",
+                    style: TextStyle(
+                      color: Colors.white
+                    ),
+              ),
+              )
+            ],
+          ),
+        )
       ),
     );
   }
