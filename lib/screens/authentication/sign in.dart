@@ -1,6 +1,7 @@
 import 'package:brew/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:brew/shared/constants.dart';
+import 'package:brew/shared/loading.dart';
 
 
 class SignIn extends StatefulWidget {
@@ -23,11 +24,12 @@ class _SignInState extends State<SignIn> {
   String email = '';
   String password = '';
   String error = '';
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
+    return loading ? const Loading() : Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
@@ -51,7 +53,7 @@ class _SignInState extends State<SignIn> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 200.0, horizontal: 50.0),
+        padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 50.0),
         child: Form(
           key: _formkey,
           child: Column(
@@ -82,11 +84,17 @@ class _SignInState extends State<SignIn> {
                 ),
                   onPressed: ()async{
                   if(_formkey.currentState!.validate()){
+                    setState(() {
+                      loading = true;
+                    });
                     if (_formkey.currentState!.validate()){
                       // dynamic because it may return either a null or a user
                       dynamic results = await _auth.signInWithEmailAndPassword(email, password);
                       if(results == null){
-                        setState(() => error = "Enter Valid Credentials");
+                        setState(() {
+                          loading = false;
+                          error = "Enter Valid Credentials";
+                        });
                       }
                     }
                   }
