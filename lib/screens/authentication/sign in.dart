@@ -12,8 +12,12 @@ class _SignInState extends State<SignIn> {
   // create an instance of the AuthService class to access its methods/functions
   final AuthService _auth = AuthService();
 
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
@@ -29,12 +33,16 @@ class _SignInState extends State<SignIn> {
             children: [
               const SizedBox(height: 20.0,),
               TextFormField(
-                onChanged: (val){},
+                onChanged: (val){
+                  setState(() => email = val);
+                },
 
               ),
               const SizedBox(height: 20.0,),
               TextFormField(
-                onChanged: (val){},
+                onChanged: (val){
+                  setState(() => password = val );
+                },
                 obscureText: true,
 
               ),
@@ -43,7 +51,10 @@ class _SignInState extends State<SignIn> {
                 style:ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.brown),
                 ),
-                  onPressed: ()async{},
+                  onPressed: ()async{
+                    print(email);
+                    print(password);
+                  },
                   child: const Text("Sign In",
                     style: TextStyle(
                       color: Colors.white
