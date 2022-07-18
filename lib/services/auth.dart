@@ -30,8 +30,17 @@ class AuthService{
   // Sign In with Email and Password
 
   //Register with Email and Password
-
-
+  Future registerWithEmailAndPassword(String email, String password) async{
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      user = result.user;
+      print(user);
+      return user;
+    } on Exception catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   // Sign Out
   Future signOut()async{
