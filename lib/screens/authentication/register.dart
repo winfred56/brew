@@ -76,7 +76,7 @@ class _RegisterState extends State<Register> {
                       // dynamic because it may return either a null or a user
                       dynamic results = await _auth.registerWithEmailAndPassword(email, password);
                       if(results == null){
-                        setState(() => error = "Enter Valid Information");
+                        setState(() => error = "Enter Valid Credentials");
                       }
                     }
                   },

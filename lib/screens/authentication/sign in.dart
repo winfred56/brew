@@ -15,9 +15,12 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   // create an instance of the AuthService class to access its methods/functions
   final AuthService _auth = AuthService();
+
   final _formkey = GlobalKey<FormState>();
+
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -75,16 +78,28 @@ class _SignInState extends State<SignIn> {
                 ),
                   onPressed: ()async{
                   if(_formkey.currentState!.validate()){
-                    print(email);
-                    print(password);
-                  };
+                    if (_formkey.currentState!.validate()){
+                      // dynamic because it may return either a null or a user
+                      dynamic results = await _auth.signInWithEmailAndPassword(email, password);
+                      if(results == null){
+                        setState(() => error = "Enter Valid Credentials");
+                      }
+                    }
+                  }
                   },
                   child: const Text("Sign In",
                     style: TextStyle(
                       color: Colors.white
                     ),
               ),
-              )
+              ),
+              const SizedBox(height: 12.0,),
+              Text(error,
+                style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0
+                ),
+              ),
             ],
           ),
         )
