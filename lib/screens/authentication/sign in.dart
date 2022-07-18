@@ -11,6 +11,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   // create an instance of the AuthService class to access its methods/functions
   final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +27,7 @@ class _SignInState extends State<SignIn> {
         child: ElevatedButton(
           onPressed: () async {
             // async because it has to wait for the SignInAnon function to complete
-            dynamic result = _auth.toString();
+            dynamic result =await _auth.signInAnon();
             // check if the function run successfully
             if(result == null){
               print("Error trying to Sign In");
