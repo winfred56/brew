@@ -90,6 +90,7 @@ class _SignInState extends State<SignIn> {
                     if (_formkey.currentState!.validate()){
                       // dynamic because it may return either a null or a user
                       dynamic results = await _auth.signInWithEmailAndPassword(email, password);
+                      // print(results.email);
                       if(results == null){
                         setState(() {
                           loading = false;
