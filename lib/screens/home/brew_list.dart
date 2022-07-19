@@ -20,7 +20,7 @@ class _BrewListState extends State<BrewList> {
     return ListView.builder(
       itemCount: brews?.length,
         itemBuilder: (context, index){
-        return brews!= null ? BrewTile(brew: brews[index]) : Container() ;
+        return BrewTile(brew: brews![index]);
         }
     );
   }
