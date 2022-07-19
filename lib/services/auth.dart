@@ -8,7 +8,7 @@ class AuthService{
   // _underscore before a variable makes the variable private. Thus you can't use it outside this file
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Create a Stream
+  // Create a Stream to check changes in authentications( ie login and logout)
   Stream<User?> getUser(){
     //print(_auth.authStateChanges());
     return _auth.authStateChanges();
