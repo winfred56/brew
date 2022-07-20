@@ -1,3 +1,4 @@
+import 'package:brew/screens/home/settings_form.dart';
 import 'package:brew/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
       showModalBottomSheet(context: context, builder: (context){
         return Container(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-          child: Text("Settings"),
+          child: SettingForm(),
         );
       });
     }

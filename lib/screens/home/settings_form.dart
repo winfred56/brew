@@ -21,7 +21,18 @@ class _SettingFormState extends State<SettingForm> {
     return Form(
       key: _formkey,
         child: Column(
-
+          children: [
+            const Text(
+              "Update your brew Settings",
+              style: TextStyle(fontSize: 18.0),
+            ),
+            const SizedBox(height: 20.0,),
+            TextFormField(
+              decoration: formDecoration,
+              validator: (val) => val!.isEmpty ?" Please enter a name ": null,
+              onChanged: (val) => setState(() => _currentName = val ),
+            ),
+          ],
         ),
     );
   }
