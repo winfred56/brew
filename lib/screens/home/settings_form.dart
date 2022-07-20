@@ -10,10 +10,20 @@ class SettingForm extends StatefulWidget {
 
 class _SettingFormState extends State<SettingForm> {
   final _formkey = GlobalKey<FormState>();
-  final List sugars = ['1','2','3','4','5'];
+  final List<String> sugars = ['0','1','2','3','4','5'];
+
+  late String _currentName;
+  late String _currentSugars;
+  late String _currentStrengt;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Form(
+      key: _formkey,
+        child: Column(
+
+        ),
+    );
   }
 }
 
