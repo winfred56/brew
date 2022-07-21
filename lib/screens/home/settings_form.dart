@@ -69,7 +69,7 @@ class _SettingFormState extends State<SettingForm> {
                 ),
                 //slider
                 Slider(
-                  value: (_currentStrength ?? userData?.strength)!.toDouble(),
+                  value: (_currentStrength).toDouble(),
                   min: 100.0,
                   max: 900.0,
                   divisions: 8,
