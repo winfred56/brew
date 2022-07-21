@@ -38,7 +38,7 @@ class _SettingFormState extends State<SettingForm> {
                 items: sugars.map((sugar) {
                   return DropdownMenuItem(
                     value: sugar,
-                      child: Text("$sugar sugar(s)"),
+                      child: Text("$sugar sugars"),
                   );
                 }).toList(),
                 onChanged: (val) => setState(() => _currentSugars = val as String),
