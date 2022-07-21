@@ -14,7 +14,7 @@ class _SettingFormState extends State<SettingForm> {
 
   late String _currentName;
   late String _currentSugars;
-  late String _currentStrength;
+  int _currentStrength=100;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +24,32 @@ class _SettingFormState extends State<SettingForm> {
           children: [
             const Text(
               "Update your brew Settings",
-              style: TextStyle(fontSize: 18.0),
+              style: TextStyle(fontSize: 20.0),
             ),
             const SizedBox(height: 20.0,),
+            const Text(
+              "Name",
+              style: TextStyle(
+                  fontSize: 18.0,
+              ),
+            ),
+            const SizedBox(height: 10.0,),
             TextFormField(
               decoration: formDecoration,
               validator: (val) => val!.isEmpty ?" Please Enter a Name ": null,
               onChanged: (val) => setState(() => _currentName = val ),
             ),
             const SizedBox(height: 20.0,),
+            const Text(
+              "Number of Sugar",
+              style: TextStyle(
+                  fontSize: 18.0
+              ),
+            ),
+            const SizedBox(height: 10.0,),
             //dropdown
             DropdownButtonFormField(
+              decoration: formDecoration,
                 items: sugars.map((sugar) {
                   return DropdownMenuItem(
                     value: sugar,
@@ -43,7 +58,24 @@ class _SettingFormState extends State<SettingForm> {
                 }).toList(),
                 onChanged: (val) => setState(() => _currentSugars = val as String),
             ),
+            const SizedBox(height: 30.0,),
+            const Text(
+              "Strength of brew",
+            style: TextStyle(
+              fontSize: 18.0
+            ),
+            ),
             //slider
+            Slider(
+              value: _currentStrength.toDouble(),
+              min: 100.0,
+                max: 900.0,
+                divisions: 8,
+              activeColor: Colors.brown[_currentStrength],
+              inactiveColor: Colors.brown[_currentStrength],
+                onChanged: (val) => setState(() => _currentStrength = val.round()),
+            ),
+
             //button
             ElevatedButton(
               style:ButtonStyle(
