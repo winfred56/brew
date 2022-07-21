@@ -34,6 +34,15 @@ class _SettingFormState extends State<SettingForm> {
             ),
             const SizedBox(height: 20.0,),
             //dropdown
+            DropdownButtonFormField(
+                items: sugars.map((sugar) {
+                  return DropdownMenuItem(
+                    value: sugar,
+                      child: Text("$sugar sugar(s)"),
+                  );
+                }).toList(),
+                onChanged: (val) => setState(() => _currentSugars = val as String),
+            ),
             //slider
             //button
             ElevatedButton(
