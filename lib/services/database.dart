@@ -1,6 +1,8 @@
 import 'package:brew/models/brew.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../models/user.dart';
+
 class DatabaseService{
 
   late final String uid;
@@ -26,6 +28,17 @@ class DatabaseService{
           name: document['name'] ?? '',
           sugars: document['sugars'] ?? '');
     }).toList();
+  }
+
+  //userData from Snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot){
+    Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    return UserData(
+        sugars: data['sugars'],
+        name: data['name'],
+        uid: uid,
+        strength: data['strength']
+    );
   }
 
   // Stream to get updates on brews
