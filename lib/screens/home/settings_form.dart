@@ -14,7 +14,7 @@ class _SettingFormState extends State<SettingForm> {
 
   late String _currentName;
   late String _currentSugars;
-  late String _currentStrengt;
+  late String _currentStrength;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,27 @@ class _SettingFormState extends State<SettingForm> {
             const SizedBox(height: 20.0,),
             TextFormField(
               decoration: formDecoration,
-              validator: (val) => val!.isEmpty ?" Please enter a name ": null,
+              validator: (val) => val!.isEmpty ?" Please Enter a Name ": null,
               onChanged: (val) => setState(() => _currentName = val ),
             ),
+            const SizedBox(height: 20.0,),
+            //dropdown
+            //slider
+            //button
+            ElevatedButton(
+              style:ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.brown),
+              ),
+              onPressed: () async{
+                print(_currentName);
+                print(_currentSugars);
+                print(_currentStrength);
+              },
+                child: const Text(
+                  "Update",
+                  style: TextStyle(color: Colors.white),
+                ),
+            )
           ],
         ),
     );
