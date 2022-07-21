@@ -69,12 +69,12 @@ class _SettingFormState extends State<SettingForm> {
                 ),
                 //slider
                 Slider(
-                  value: (userData?.strength)!.toDouble(),
+                  value: (_currentStrength ?? userData?.strength)!.toDouble(),
                   min: 100.0,
                   max: 900.0,
                   divisions: 8,
                   activeColor: Colors.brown[_currentStrength],
-                  inactiveColor: Colors.brown[_currentStrength],
+                  // inactiveColor: Colors.brown[_currentStrength],
                   onChanged: (val) => setState(() => _currentStrength = val.round()),
                 ),
 
@@ -88,7 +88,8 @@ class _SettingFormState extends State<SettingForm> {
                       await DatabaseService(uid: user.uid).updateUserData(
                           _currentSugars,
                           _currentName,
-                          _currentStrength);
+                          _currentStrength
+                      );
                       Navigator.pop(context);
                     }
                   },
